@@ -10,13 +10,13 @@ Description: Plugin for viewing 3D models (.obj) using 3DHOP <http://www.3dhop.n
 
 if (!defined('PHPWG_ROOT_PATH')) die('Hacking attempt!');
 
-define('3DHOP_PATH', PHPWG_PLUGINS_PATH.basename(dirname(__FILE__)).'/');
+define('_3DHOP_PATH', PHPWG_PLUGINS_PATH.basename(dirname(__FILE__)).'/');
 
 global $conf;
 
 // Supported file extensions
-$3dhop_extensions = array('obj', 'ply', 'nxs');
-$conf['file_ext'] = array_merge($conf['file_ext'], $3dhop_extensions);
+$_3dhop_extensions = array('obj', 'ply', 'nxs');
+$conf['file_ext'] = array_merge($conf['file_ext'], $_3dhop_extensions);
 
 // Event handlers
 add_event_handler('render_element_content', '_3dhop_model_content', EVENT_HANDLER_PRIORITY_NEUTRAL, 2);
@@ -32,7 +32,8 @@ function _3dhop_model_content($content, $element_info)
 	);
 
 	$template->assign(array(
-		'3DHOP_FILES' => 3DHOP_PATH."3dhop-minimal"
+		'3DHOP_FILES' => _3DHOP_PATH."3dhop-minimal",
+		'3DHOP_MODEL_URL' => $element_info['element_url']
 	));
 
 	# Render and return template
