@@ -5,7 +5,7 @@ Plugin Name: 3dhop
 Plugin URI: // link to the Piwigo extension gallery
 Author: joeroe
 Author URI: https://github.com/joeroe
-Description: Plugin for viewing 3D models (.obj) using 3DHOP <http://www.3dhop.net>
+Description: Plugin for viewing 3D models using 3DHOP <http://www.3dhop.net>
 */
 
 if (!defined('PHPWG_ROOT_PATH')) die('Hacking attempt!');
@@ -16,7 +16,7 @@ global $conf;
 
 // File types
 function get_3dhop_exts() {
-	$exts = array('obj', 'ply', 'nxs');
+	$exts = array('ply', 'nxs');
 	return $exts;
 }
 
