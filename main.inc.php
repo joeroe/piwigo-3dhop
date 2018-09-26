@@ -14,9 +14,19 @@ define('_3DHOP_PATH', PHPWG_PLUGINS_PATH.basename(dirname(__FILE__)).'/');
 
 global $conf;
 
-// Supported file extensions
-$_3dhop_extensions = array('obj', 'ply', 'nxs');
-$conf['file_ext'] = array_merge($conf['file_ext'], $_3dhop_extensions);
+// File types
+function get_3dhop_exts() {
+	$exts = array('obj', 'ply', 'nxs');
+	return $exts;
+}
+
+function is_3dhop_ext($ext) 
+{
+	return in_array($ext, get_3dhop_exts());
+}
+
+$conf['file_ext'] = array_merge($conf['file_ext'], get_3dhop_exts());
+
 
 // Event handlers
 add_event_handler('render_element_content', '_3dhop_model_content', EVENT_HANDLER_PRIORITY_NEUTRAL, 2);
@@ -25,7 +35,12 @@ add_event_handler('render_element_content', '_3dhop_model_content', EVENT_HANDLE
 function _3dhop_model_content($content, $element_info)
 {
 	global $conf, $template;
-	
+
+	# Do nothing if content is not a model
+	if (!is_3dhop_ext(get_extension($element_info['path']))) {
+		return $content;
+	}
+
 	# Configure viewer template
 	$template->set_filenames(
 		array('3dhop_content' => dirname(__FILE__)."/template/3dhop-viewer.tpl")
