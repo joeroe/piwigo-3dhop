@@ -1,2 +1,3 @@
 # piwigo-3dhop
-Piwigo plugin for viewing 3D models
+
+[Piwigo](https://piwigo.org) plugin for viewing 3D models using [3DHOP](https://http://www.3dhop.net).
