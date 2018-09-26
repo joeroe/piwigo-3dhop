@@ -19,10 +19,10 @@ $3dhop_extensions = array('obj', 'ply', 'nxs');
 $conf['file_ext'] = array_merge($conf['file_ext'], $3dhop_extensions);
 
 // Event handlers
-add_event_handler('render_element_content', '3dhop_model_content', EVENT_HANDLER_PRIORITY_NEUTRAL, 2);
+add_event_handler('render_element_content', '_3dhop_model_content', EVENT_HANDLER_PRIORITY_NEUTRAL, 2);
 
 // Element content handler for 3D models 
-function 3dhop_model_content($content, $element_info)
+function _3dhop_model_content($content, $element_info)
 {
 	global $conf, $template;
 	
@@ -36,8 +36,8 @@ function 3dhop_model_content($content, $element_info)
 	));
 
 	# Render and return template
-	$3dhop_content = $template->parse('3dhop_content', true);
-	return $3dhop_content;
+	$_3dhop_content = $template->parse('3dhop_content', true);
+	return $_3dhop_content;
 }
 
 ?>
