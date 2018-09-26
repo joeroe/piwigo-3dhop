@@ -3,7 +3,7 @@
 Version: 0.1
 Plugin Name: 3dhop
 Plugin URI: // link to the Piwigo extension gallery
-Author: Joe Roe & Alexis Pantos
+Author: joeroe
 Description: Plugin for viewing 3D models (.obj) using 3DHOP <http://www.3dhop.net>
 */
 
