@@ -26,3 +26,7 @@ Alternatively, download the repository using the link above and unzip it to `plu
 Enable the '3dhop' plugin in your Piwigo admin interface. You can then add models to the gallery using file synchronisation (FTP) or the upload tool. 
 
 Note that the plugin currently cannot generate thumbnails of 3D models on album pages, etc.
+
+## License
+
+The `piwigo-3dhop` plugin is licensed under the MIT License. 3DHOP was developed by the [Visual Computing Laboratory](http://vcg.isti.cnr.it/) at CNR-ISTI and is included with the plugin under the terms of its GPL v3.0 license.
