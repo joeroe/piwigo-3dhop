@@ -8,13 +8,13 @@
 
 ### From Piwigo 
 
-Submission to the Piwigo extensions repository is planned soon.
+The easiest way to install the plugin is from within Piwigo. Search for '3dhop' in the plugin manager, click 'install', and then 'activate now'.
 
 ### From GitHub (development version)
 
 To use the latest development version of the plugin, you can clone this repository directly into the `plugins` directory of your Piwigo installation.
 
-```sh
+```
 cd <PATH_TO_PIWIGO>/plugins 
 git clone https://github.com/joeroe/piwigo-3dhop.git 3dhop
 ```
