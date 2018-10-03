@@ -1,6 +1,6 @@
 <?php
 /*
-Version: 1.0
+Version: 1.1
 Plugin Name: 3dhop
 Plugin URI: // link to the Piwigo extension gallery
 Author: joeroe
