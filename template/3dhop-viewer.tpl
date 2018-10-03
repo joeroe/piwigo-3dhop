@@ -29,6 +29,7 @@ function setup3dhop() {
       }
     }
   });
+  presenter._onEndMeasurement = onEndMeasure;
 }
 
 function actionsToolbar(action) {
@@ -42,11 +43,16 @@ function actionsToolbar(action) {
     presenter.enableLightTrackball(!presenter.isLightTrackballEnabled()); lightSwitch(); } 
   else if(action=='full'  || action=='full_on') 
     fullscreenSwitch(); 
+  else if(action=='measure' || action=='measure_on') {
+    presenter.enableMeasurementTool(!presenter.isMeasurementToolEnabled()); measureSwitch(); } 
+}
+
+function onEndMeasure(measure, p1, p2) {
+  $('#measure-output').html(measure.toFixed(2) + " m");
 }
 
 $(document).ready(function(){
   init3dhop();
-
   setup3dhop();
 });
 </script>
@@ -59,8 +65,14 @@ $(document).ready(function(){
 		<img id="zoomout" title="Zoom Out" src="{$3DHOP_FILES}/skins/dark/zoomout.png" /><br/>
 		<img id="light_on" title="Disable Light Control" src="{$3DHOP_FILES}/skins/dark/lightcontrol_on.png" style="position:absolute; visibility:hidden;"/>
 		<img id="light" title="Enable Light Control" src="{$3DHOP_FILES}/skins/dark/lightcontrol.png" /><br/>
+		<img id="measure_on" title="Disable Measure Tool" src="{$3DHOP_FILES}/skins/dark/measure_on.png" style="position:absolute; visibility:hidden;" />
+		<img id="measure" title="Enable Measure Tool" src="{$3DHOP_FILES}/skins/dark/measure.png" /><br />
 		<img id="full_on" title="Exit Full Screen" src="{$3DHOP_FILES}/skins/dark/full_on.png" style="position:absolute; visibility:hidden;"/>
 		<img id="full" title="Full Screen" src="{$3DHOP_FILES}/skins/dark/full.png" />
-	</div>       
+	</div>
+	<div id="measure-box" class="output-box">
+		Measured length<hr />
+		<span id="measure-output" class="output-text" onmousedown="event.stopPropagation()">0.0</span>
+	</div>
 	<canvas id="draw-canvas"/>
 </div>
