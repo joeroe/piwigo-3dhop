@@ -1,8 +1,8 @@
 <?php
 /*
-Version: 1.1
+Version: 1.2
 Plugin Name: 3dhop
-Plugin URI: // link to the Piwigo extension gallery
+Plugin URI: https://piwigo.org/ext/extension_view.php?eid=879
 Author: joeroe
 Author URI: https://github.com/joeroe
 Description: Plugin for viewing 3D models using 3DHOP <http://www.3dhop.net>
@@ -11,6 +11,7 @@ Description: Plugin for viewing 3D models using 3DHOP <http://www.3dhop.net>
 if (!defined('PHPWG_ROOT_PATH')) die('Hacking attempt!');
 
 define('_3DHOP_PATH', PHPWG_PLUGINS_PATH.basename(dirname(__FILE__)).'/');
+define('_3DHOP_URL', get_gallery_home_url()._3DHOP_PATH);
 
 global $conf;
 
@@ -43,11 +44,11 @@ function _3dhop_model_content($content, $element_info)
 
 	# Configure viewer template
 	$template->set_filenames(
-		array('3dhop_content' => dirname(__FILE__)."/template/3dhop-viewer.tpl")
+		array('3dhop_content' => _3DHOP_PATH.'/template/3dhop-viewer.tpl')
 	);
 
 	$template->assign(array(
-		'3DHOP_FILES' => _3DHOP_PATH."3dhop-minimal",
+		'3DHOP_FILES' => _3DHOP_URL.'3dhop-minimal',
 		'3DHOP_MODEL_URL' => $element_info['element_url']
 	));
 
